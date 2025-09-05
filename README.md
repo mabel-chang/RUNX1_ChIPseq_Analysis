@@ -1,6 +1,6 @@
 # RUNX1 ChIP-seq Analysis BF528
 ## Overview
-RUNX1 is a transcription factor with essential roles in hematopoiesis and leukemia. This project aims to reproduce and analyze RUNX1 binding profiles using publicly available ChIP-seq datasets, integrating the results with RNA-seq data. Analyses replicate Figure 2 and relevant supplementary materials from the original publication:[Gao et al., PMC5071180](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5071180/).
+RUNX1 is a transcription factor with essential roles in hematopoiesis and leukemia. This project aims to reproduce and analyze RUNX1 binding profiles using publicly available ChIP-seq datasets, integrating the results with RNA-seq data. Analyses replicate Figure 2 and relevant supplementary materials from the original publication, Barutcu et al. (GEO accession: GSE75070).
 
 * Perform quality control and preprocessing of ChIP-seq reads.
 * Align reads to the human genome (GRCh38) and call peaks.
@@ -62,8 +62,10 @@ RUNX1 is a transcription factor with essential roles in hematopoiesis and leukem
 
 ## Aknowledgements
 * Data from
-  
-  Gao, Y. et al., PMC5071180. "RUNX1 ChIP-seq study in hematopoietic cells." Nucleic Acids Research, 2016.
+
+  Barutcu AR, Hong D, Lajoie BR, McCord RP et al. RUNX1 contributes to higher-order chromatin organization and gene regulation in breast cancer cells. 
+  Biochim Biophys Acta 2016 Nov;1859(11):1389-1397. PMID: 27514584
+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5071180/
 
 ## Author
 Mabel Chang
