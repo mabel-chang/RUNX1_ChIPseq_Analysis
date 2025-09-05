@@ -1,4 +1,4 @@
-name: bf528_project2_base
+name: bf528_project_base
 channels:
 - conda-forge
 - bioconda
