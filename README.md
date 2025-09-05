@@ -70,4 +70,4 @@ RUNX1 is a transcription factor with essential roles in hematopoiesis and leukem
 ## Author
 Mabel Chang
 
-Developed as the final project for BF528: Applications in Translational Bioinformatics at Boston University (S24), instructed by Dr. Joey Orofino 
+Developed as a project for BF528: Applications in Translational Bioinformatics at Boston University (S24), instructed by Dr. Joey Orofino 
