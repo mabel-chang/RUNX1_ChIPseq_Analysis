@@ -11,6 +11,11 @@ RUNX1 is a transcription factor with essential roles in hematopoiesis and leukem
 
 ## Dependencies
 * Package management: Miniconda, Bioconda, Conda-Forge
+* Workflow & Programming Dependencies:
+  * snakemake v8.5.2
+  * snakemake-executor-plugin-cluster-generic v1.0.7
+  * pandas v2.2.1
+  * jupyterlab v4.1.2
 * High-performance computing: Boston University Shared Computing Cluster (SCC)
 * Tools:
   * BEDTools v2.31.1
@@ -21,7 +26,7 @@ RUNX1 is a transcription factor with essential roles in hematopoiesis and leukem
   * MultiQC v1.20
   * SAMtools v1.19.2
   * Trimmomatic v0.39
-
+ 
 ## Workflow Summary
 ### 1. Data Acquisition & QC
 * Download ChIP-seq reads from EMBL-ENA using wget.
