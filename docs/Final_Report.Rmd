@@ -1,14 +1,7 @@
 ---
-title: "Project 2 Discussion Questions"
+title: "Discussion Questions"
 output: html_document
-date: "2024-04-04"
 ---
-Please take some time and answer the following questions. You'll notice that
-some questions are more theoretical and may require you to do a little research.
-Feel free to also discuss with your classmates. After submission, we will
-provide you feedback and allow you to resubmit. We will also go through the
-questions together during class after resubmission.
-
 **Methods and Quality Control**
 1. Include a full methods section for this project. You may simply combine
 the individual methods sections you've written for each week.
