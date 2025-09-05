@@ -29,8 +29,8 @@ RUNX1 is a transcription factor with essential roles in hematopoiesis and leukem
 * Trimm adapters and low-quality bases using Trimmomatic.
 * Generate Bowtie2 genome index for GRCh38.
 * QC Insights
- * IP samples showed higher duplication rates due to enrichment of RUNX1-bound fragments.
- * GC content differed between IP and Input, reflecting sequence bias from transcription factor binding.
+  * IP samples showed higher duplication rates due to enrichment of RUNX1-bound fragments.
+  * GC content differed between IP and Input, reflecting sequence bias from transcription factor binding.
 
 ### 2. Alignment & Processing
 * Align reads with Bowtie2.
