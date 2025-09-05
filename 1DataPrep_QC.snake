@@ -1,0 +1,65 @@
+import pandas
+
+sheet_csv = pandas.read_csv('sheet.csv', index_col='name')
+CONDITIONS = set(sheet_csv['condition'].tolist())
+REPS = set(sheet_csv['replicate'].tolist())
+
+rule all:
+	input:
+		expand("samples/{condition}_{rep}.fastq.gz", condition=CONDITIONS, rep=REPS), 
+		expand("results/{condition}_{rep}_fastqc.html", condition=CONDITIONS, rep=REPS),
+		expand("results/{condition}_{rep}_trimmed.fastq.gz",  condition=CONDITIONS, rep=REPS),
+		results/full_gen_ind.1.bt2
+        
+#DO NOT ALTER
+rule wget_files:
+	output:
+		'samples/{condition}_{rep}.fastq.gz'
+	params:
+		link = lambda wildcards: sheet_csv.loc['{}_{}'.format(wildcards.condition, wildcards.rep), 'ftp_link'],
+		renamed = lambda wildcards: 'samples/{}_{}.fastq.gz'.format(wildcards.condition, wildcards.rep)
+	shell:
+		'''
+		wget -O {params.renamed} {params.link} 
+		'''
+
+rule fastqc:
+	input:
+		fastq = "samples/{condition}_{rep}.fastq.gz"
+	output:
+		fastqc = "results/{condition}_{rep}_fastqc.html"
+	params:
+		outdir = "results/"
+	threads: 4
+	conda:
+		'envs/fastqc_env.yml'
+	shell:
+		'''
+		fastqc --runThreadN {threads} {input.fastq} --outdir {params.outdir}
+		'''
+	
+rule trimomatic:
+	input:
+		fastq = "samples/{condition}_{rep}.fastq.gz",
+		adapters = "results/TruSeq3-SE.fa"
+	output:
+		trimmed = "results/{condition}_{rep}_trimmed.fastq.gz"
+	threads: 8
+	conda:
+		'envs/trimmomatic_env.yml'
+	shell:
+		'''
+		trimmomatic SE {input.fastq} {output.trimmed} ILLUMINACLIP:{input.adapters}:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15
+		'''
+
+rule bowtie2_build_gencode:
+	input:
+		ref = "results/GRCh38.primary_assembly.genome.fa.gz"
+	output:
+	threads: 16
+	conda:
+		'envs/bowtie2_env.yml'
+	shell:
+		'''
+		bowtie2-build {input.ref} results/full_gen_ind/
+		'''

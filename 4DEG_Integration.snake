@@ -1,0 +1,32 @@
+CONDITIONS = ['INP', 'RUNX1']
+
+rule all:
+	input:
+		expand("results/{condition}_plot.png", condition=CONDITIONS)
+
+rule computeMatrix:
+	input:
+		bwR1="results/RUNX1_rep1.bw",
+		bwR2="results/RUNX1_rep2.bw",
+		bed="results/hg38_genes.bed"
+	output:
+		"results/{condition}.gz"
+	conda:
+		"envs/deeptools_env.yml"
+	threads: 4
+	shell:
+		"""
+		computeMatrix scale-regions -S {input.bwR1} {input.bwR2} -R {input.bed} --upstream 2000 --downstream 2000 -o {output}
+		"""
+
+rule plotMatrix:
+	input:
+		"results/{condition}.gz"
+	output:
+		"results/{condition}_plot.png"
+	conda:
+		"envs/deeptools_env.yml"
+	shell:
+		"""
+		plotProfile -m {input} -o {output}
+		"""
