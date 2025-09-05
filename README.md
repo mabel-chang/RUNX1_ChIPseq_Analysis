@@ -28,6 +28,9 @@ RUNX1 is a transcription factor with essential roles in hematopoiesis and leukem
 * Perform initial quality control with FastQC.
 * Trimm adapters and low-quality bases using Trimmomatic.
 * Generate Bowtie2 genome index for GRCh38.
+* QC Insights
+ * IP samples showed higher duplication rates due to enrichment of RUNX1-bound fragments.
+ * GC content differed between IP and Input, reflecting sequence bias from transcription factor binding.
 
 ### 2. Alignment & Processing
 * Align reads with Bowtie2.
@@ -46,10 +49,6 @@ RUNX1 is a transcription factor with essential roles in hematopoiesis and leukem
 * Generate gene body signal profiles using deeptools plotProfile.
 * Visualize peaks in key loci (MALAT1, NEAT1) using Integrative Genomics Viewer (IGV).
 * Integrate ChIP-seq and RNA-seq data to reproduce figures from the publication.
-
-## QC Insights
-* IP samples showed higher duplication rates due to enrichment of RUNX1-bound fragments.
-* GC content differed between IP and Input, reflecting sequence bias from transcription factor binding.
   
 ## Results
 * Replicate peaks: Replicate 1 = 106,072, Replicate 2 = 50,952
