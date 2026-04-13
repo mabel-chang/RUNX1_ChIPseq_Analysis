@@ -1,13 +1,13 @@
 # RUNX1 ChIP-seq Analysis
 ## Overview
-RUNX1 is a human transcription factor with essential roles in hematopoiesis and leukemia. This project aims to reproduce and analyze RUNX1 binding profiles using publicly available ChIP-seq datasets, integrating the results with RNA-seq data. Analyses replicate Figure 2 and relevant supplementary materials from the original publication, Barutcu et al. (GEO accession: GSE75070).
+RUNX1 is a human transcription factor with essential roles in hematopoiesis and leukemia. This project aims to reproduce and analyze RUNX1 binding profiles in MCF7 breast cancer cells using publicly available ChIP-seq datasets, integrating the results with RNA-seq data. Analyses replicate Figure 2 and relevant supplementary materials from the original publication, Barutcu et al. (GEO accession: GSE75070).
 
 * Perform quality control and preprocessing of ChIP-seq reads.
 * Align reads to the human genome (GRCh38) and call peaks.
 * Identify reproducible peaks and annotate them to genomic features.
 * Conduct motif enrichment analysis.
 * Visualize coverage profiles across genes of interest.
-* Compare ChIP-seq results with RNA-seq to explore regulatory effects.
+* Compare ChIP-seq results with RNA-seq to explore regulatory effects in MCF7 breast cancer cells.
 
 ## Dependencies
 * Package management: Miniconda, Bioconda, Conda-Forge
